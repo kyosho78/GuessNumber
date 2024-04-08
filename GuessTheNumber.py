@@ -1,3 +1,22 @@
+import sys
+
+from colorama import init
+init(strip=not sys.stdout.isatty()) # strip colors if stdout is redirected
+from termcolor import cprint 
+from pyfiglet import figlet_format
+
+cprint(figlet_format('guess the number!', font='starwars'),
+       'yellow', 'on_red', attrs=['bold'])
+
+
+
+
+
+
+
+
+
+
 print("Welcome to the number guess game!")
 print("Enter your name.")
 name = input()
@@ -9,6 +28,7 @@ print("You have 3 tries.")
 import random
 
 def play_game():
+
     number = random.randint(1, 20)
     for i in range(3):
         print("Enter your guess.")
@@ -30,10 +50,10 @@ def play_game():
 def play_again():
     print("Play again?")
     print("Enter yes or no.")
-    answer = input().lower()  # .lower() ensures 'YES', 'Yes', etc. are accepted
+    answer = input().lower()  
     if answer == "YES" or answer == "y":
-        play_game()  # Call the function again to restart the game
+        play_game()  
     else:
         print("Goodbye!")
 
-play_game()  # Initial call to start the game
+play_game()  
